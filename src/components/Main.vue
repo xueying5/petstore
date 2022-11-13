@@ -40,6 +40,7 @@
 </template>
 <script>
 import MyHeader from './Header.vue';
+import { mapGetters } from "vuex";
 export default {
   name: 'imain',
   data() {
@@ -89,9 +90,9 @@ export default {
         return productsArray.sort(compare);
       }
     },
-    products(){
-      return this.$store.getters.products;
-    }
+    ...mapGetters([
+      'products',
+    ]),
   },
   filters: {
     formatPrice(price) {
